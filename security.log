@@ -1,3 +1,10 @@
 {"level":"info","message":"Application started successfully on port 8080.","timestamp":"2026-02-25T19:28:56.858Z"}
 {"level":"warn","message":"Failed login attempt detected from IP: 192.168.1.50","timestamp":"2026-02-25T19:28:56.865Z"}
 {"level":"error","message":"CRITICAL: Database connection lost during authentication phase!","timestamp":"2026-02-25T19:28:56.866Z"}
+{"level":"info","message":"Application started"}
+{"level":"info","message":"Application started"}
+{"level":"warn","message":"Login failed: Unregistered email attempted (hhd)"}
+{"level":"warn","message":"Registration failed: Invalid email format attempted (hhd)"}
+{"level":"warn","message":"Registration failed: Invalid email format attempted (hhd)"}
+{"level":"info","message":"New user registered successfully: ijbaig53@gmail.com"}
+{"level":"info","message":"User logged in successfully: ijbaig53@gmail.com"}

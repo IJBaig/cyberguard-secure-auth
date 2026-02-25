@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secure App</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 50px; max-width: 400px; margin: auto; }
+        .box { border: 1px solid #ccc; padding: 20px; border-radius: 8px; margin-bottom: 20px; }
+        input, button { width: 100%; padding: 10px; margin: 10px 0; box-sizing: border-box; }
+        #message { color: green; font-weight: bold; margin-top: 15px; }
+        #error { color: red; font-weight: bold; margin-top: 15px; }
+    </style>
+</head>
+<body>
+
+    <h2>Internship: Secure Web App</h2>
+
+    <div class="box" id="auth-box">
+        <h3>Register / Login</h3>
+        <input type="email" id="email" placeholder="Email Address" required>
+        <input type="password" id="password" placeholder="Password" required>
+        
+        <button onclick="register()">Register</button>
+        <button onclick="login()">Login</button>
+        
+        <div id="message"></div>
+        <div id="error"></div>
+    </div>
+
+    <script>
+        const emailInput = document.getElementById('email');
+        const passwordInput = document.getElementById('password');
+        const msgDiv = document.getElementById('message');
+        const errDiv = document.getElementById('error');
+
+        async function register() {
+            msgDiv.innerText = ''; errDiv.innerText = '';
+            const res = await fetch('/register', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ email: emailInput.value, password: passwordInput.value })
+            });
+            const data = await res.json();
+            if (res.ok) msgDiv.innerText = data.message;
+            else errDiv.innerText = data.error;
+        }
+
+        async function login() {
+            msgDiv.innerText = ''; errDiv.innerText = '';
+            const res = await fetch('/login', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ email: emailInput.value, password: passwordInput.value })
+            });
+            const data = await res.json();
+            if (res.ok) {
+                // Hide the login form and show the welcome message
+                document.getElementById('auth-box').innerHTML = `<h2>${data.message}</h2><p>Your secure JWT Token:<br><textarea rows="4" cols="35" disabled>${data.token}</textarea></p>`;
+            } else {
+                errDiv.innerText = data.error;
+            }
+        }
+    </script>
+</body>
+</html>
