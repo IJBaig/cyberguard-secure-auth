@@ -1,5 +1,5 @@
 {
-  "name": "AuthShield-secure-auth",
+  "name": "cyberguard-secure-auth",
   "version": "1.0.0",
   "description": "Secure Authentication and Logging",
   "main": "server.js",
