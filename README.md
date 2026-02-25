@@ -26,7 +26,7 @@ Ensure you have [Node.js](https://nodejs.org/) installed on your machine.
 ### Installation & Setup
 1. Clone the repository:
    ```bash
-   git clone [https://github.com/IJBaig/cyberguard-secure-auth.git](https://github.com/IJBaig/cyberguard-secure-auth.git)
+   git clone https://github.com/IJBaig/cyberguard-secure-auth
    cd cyberguard-secure-auth
    ```
 2. Install the required dependencies:
