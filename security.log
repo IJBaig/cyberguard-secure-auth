@@ -8,3 +8,33 @@
 {"level":"warn","message":"Registration failed: Invalid email format attempted (hhd)"}
 {"level":"info","message":"New user registered successfully: ijbaig53@gmail.com"}
 {"level":"info","message":"User logged in successfully: ijbaig53@gmail.com"}
+{"level":"info","message":"Secure application started on port 3000","timestamp":"2026-02-25T20:14:38.321Z"}
+{"level":"warn","message":"Login failed: Unregistered email (admin@domain.com)","timestamp":"2026-02-25T20:15:13.000Z"}
+{"level":"info","message":"New user registered: jon (admin@domain.com)","timestamp":"2026-02-25T20:17:21.708Z"}
+{"level":"info","message":"User logged in successfully: jon","timestamp":"2026-02-25T20:17:41.889Z"}
+{"level":"warn","message":"Password reset failed: No match for Username: jone, Email: admin@domain.com","timestamp":"2026-02-25T20:18:17.474Z"}
+{"level":"info","message":"Password successfully reset for user: jon","timestamp":"2026-02-25T20:18:24.629Z"}
+{"level":"warn","message":"Login failed: Incorrect password for admin@domain.com","timestamp":"2026-02-25T20:18:29.325Z"}
+{"level":"warn","message":"Login failed: Incorrect password for admin@domain.com","timestamp":"2026-02-25T20:18:49.561Z"}
+{"level":"warn","message":"Login failed: Incorrect password for admin@domain.com","timestamp":"2026-02-25T20:18:50.783Z"}
+{"level":"warn","message":"Login failed: Incorrect password for admin@domain.com","timestamp":"2026-02-25T20:18:52.624Z"}
+{"level":"warn","message":"Login failed: Incorrect password for admin@domain.com","timestamp":"2026-02-25T20:18:53.368Z"}
+{"level":"warn","message":"Login failed: Incorrect password for admin@domain.com","timestamp":"2026-02-25T20:19:05.649Z"}
+{"level":"warn","message":"Login failed: Incorrect password for admin@domain.com","timestamp":"2026-02-25T20:19:16.957Z"}
+{"level":"warn","message":"Login failed: Incorrect password for admin@domain.com","timestamp":"2026-02-25T20:19:17.646Z"}
+{"level":"warn","message":"Login failed: Incorrect password for admin@domain.com","timestamp":"2026-02-25T20:19:33.911Z"}
+{"level":"warn","message":"Login failed: Incorrect password for admin@domain.com","timestamp":"2026-02-25T20:19:36.211Z"}
+{"level":"warn","message":"Login failed: Incorrect password for admin@domain.com","timestamp":"2026-02-25T20:19:45.536Z"}
+{"level":"warn","message":"Login failed: Incorrect password for admin@domain.com","timestamp":"2026-02-25T20:19:48.772Z"}
+{"level":"warn","message":"Login failed: Incorrect password for admin@domain.com","timestamp":"2026-02-25T20:20:24.495Z"}
+{"level":"warn","message":"Login failed: Incorrect password for admin@domain.com","timestamp":"2026-02-25T20:20:34.884Z"}
+{"level":"warn","message":"Login failed: Incorrect password for admin@domain.com","timestamp":"2026-02-25T20:20:35.591Z"}
+{"level":"info","message":"Password successfully reset for user: jon","timestamp":"2026-02-25T20:21:04.512Z"}
+{"level":"warn","message":"Login failed: Incorrect password for admin@domain.com","timestamp":"2026-02-25T20:21:08.803Z"}
+{"level":"warn","message":"Login failed: Incorrect password for admin@domain.com","timestamp":"2026-02-25T20:21:17.815Z"}
+{"level":"warn","message":"Login failed: Incorrect password for admin@domain.com","timestamp":"2026-02-25T20:21:19.461Z"}
+{"level":"warn","message":"Login failed: Incorrect password for admin@domain.com","timestamp":"2026-02-25T20:21:28.096Z"}
+{"level":"warn","message":"Login failed: Incorrect password for admin@domain.com","timestamp":"2026-02-25T20:21:29.001Z"}
+{"level":"warn","message":"Login failed: Incorrect password for admin@domain.com","timestamp":"2026-02-25T20:21:29.178Z"}
+{"level":"warn","message":"Login failed: Incorrect password for admin@domain.com","timestamp":"2026-02-25T20:21:29.343Z"}
+{"level":"info","message":"User logged in successfully: jon","timestamp":"2026-02-25T20:21:39.697Z"}

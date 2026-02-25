@@ -3,64 +3,99 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Secure App</title>
-    <style>
-        body { font-family: Arial, sans-serif; padding: 50px; max-width: 400px; margin: auto; }
-        .box { border: 1px solid #ccc; padding: 20px; border-radius: 8px; margin-bottom: 20px; }
-        input, button { width: 100%; padding: 10px; margin: 10px 0; box-sizing: border-box; }
-        #message { color: green; font-weight: bold; margin-top: 15px; }
-        #error { color: red; font-weight: bold; margin-top: 15px; }
-    </style>
+    <title>CyberGuard | Secure Access</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <h2>Internship: Secure Web App</h2>
+    <div class="auth-container">
+        
+        <div id="view-login" class="view-section active">
+            <h2>CyberGuard</h2>
+            <p class="subtitle">Secure Identity Management</p>
+            <div class="input-group">
+                <label>Email Address</label>
+                <input type="email" id="login-email" placeholder="admin@domain.com">
+            </div>
+            <div class="input-group">
+                <label>Password</label>
+                <input type="password" id="login-password" placeholder="••••••••">
+            </div>
+            <button onclick="handleLogin()">Authenticate</button>
+            <div id="login-alert" class="alert"></div>
+            <div class="links">
+                <a onclick="switchView('view-register')">Create an account</a> | 
+                <a onclick="switchView('view-forgot')">Forgot Password?</a>
+            </div>
+        </div>
 
-    <div class="box" id="auth-box">
-        <h3>Register / Login</h3>
-        <input type="email" id="email" placeholder="Email Address" required>
-        <input type="password" id="password" placeholder="Password" required>
-        
-        <button onclick="register()">Register</button>
-        <button onclick="login()">Login</button>
-        
-        <div id="message"></div>
-        <div id="error"></div>
+        <div id="view-register" class="view-section">
+            <h2>Create Account</h2>
+            <p class="subtitle">Establish your secure profile</p>
+            <div class="input-group">
+                <label>Username</label>
+                <input type="text" id="reg-username" placeholder="johndoe123">
+            </div>
+            <div class="input-group">
+                <label>Email Address</label>
+                <input type="email" id="reg-email" placeholder="john@domain.com">
+            </div>
+            <div class="input-group">
+                <label>Master Password</label>
+                <input type="password" id="reg-password" placeholder="••••••••">
+                <label class="checkbox-label">
+                    <input type="checkbox" onclick="togglePassword('reg-password', 'reg-confirm')" style="margin-right: 8px;"> Show Passwords
+                </label>
+                <span class="hint">Must contain: 8+ chars, 1 uppercase, 1 lowercase, 1 number, 1 special char (@$!%*?&#)</span>
+            </div>
+            <div class="input-group">
+                <label>Confirm Password</label>
+                <input type="password" id="reg-confirm" placeholder="••••••••">
+            </div>
+            <button onclick="handleRegister()">Register Securely</button>
+            <div id="reg-alert" class="alert"></div>
+            <div class="links">
+                <a onclick="switchView('view-login')">Back to Login</a>
+            </div>
+        </div>
+
+        <div id="view-forgot" class="view-section">
+            <h2>Reset Password</h2>
+            <p class="subtitle">Verify identity to proceed</p>
+            <div class="input-group">
+                <label>Registered Username</label>
+                <input type="text" id="reset-username" placeholder="johndoe123">
+            </div>
+            <div class="input-group">
+                <label>Registered Email</label>
+                <input type="email" id="reset-email" placeholder="john@domain.com">
+            </div>
+            <div class="input-group">
+                <label>New Password</label>
+                <input type="password" id="reset-password" placeholder="••••••••">
+                <label class="checkbox-label">
+                    <input type="checkbox" onclick="togglePassword('reset-password')" style="margin-right: 8px;"> Show Password
+                </label>
+                <span class="hint">Must meet complexity requirements.</span>
+            </div>
+            <button onclick="handleReset()">Reset Password</button>
+            <div id="reset-alert" class="alert"></div>
+            <div class="links">
+                <a onclick="switchView('view-login')">Back to Login</a>
+            </div>
+        </div>
+
+        <div id="view-welcome" class="view-section">
+            <h2 id="welcome-title">Welcome!</h2>
+            <p class="subtitle">Authentication Successful</p>
+            <p style="font-size: 0.9em; color: var(--text-muted); text-align: center;">Your secure JWT Token is displayed below. Keep it safe.</p>
+            <textarea id="jwt-token" rows="5" disabled></textarea>
+            
+            <button onclick="handleLogout()" style="background: #ef4444; margin-top: 20px;">Log Out Securely</button>
+        </div>
     </div>
 
-    <script>
-        const emailInput = document.getElementById('email');
-        const passwordInput = document.getElementById('password');
-        const msgDiv = document.getElementById('message');
-        const errDiv = document.getElementById('error');
-
-        async function register() {
-            msgDiv.innerText = ''; errDiv.innerText = '';
-            const res = await fetch('/register', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ email: emailInput.value, password: passwordInput.value })
-            });
-            const data = await res.json();
-            if (res.ok) msgDiv.innerText = data.message;
-            else errDiv.innerText = data.error;
-        }
-
-        async function login() {
-            msgDiv.innerText = ''; errDiv.innerText = '';
-            const res = await fetch('/login', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ email: emailInput.value, password: passwordInput.value })
-            });
-            const data = await res.json();
-            if (res.ok) {
-                // Hide the login form and show the welcome message
-                document.getElementById('auth-box').innerHTML = `<h2>${data.message}</h2><p>Your secure JWT Token:<br><textarea rows="4" cols="35" disabled>${data.token}</textarea></p>`;
-            } else {
-                errDiv.innerText = data.error;
-            }
-        }
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
