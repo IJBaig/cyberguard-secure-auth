@@ -10,5 +10,6 @@ npm-debug.log*
 .env
 
 # OS generated files
+users.db
 .DS_Store
 Thumbs.db
