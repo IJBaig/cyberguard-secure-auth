@@ -1,15 +1,16 @@
-// UI Navigation
+// --- UI Navigation ---
 function switchView(viewId) {
     document.querySelectorAll('.view-section').forEach(el => el.classList.remove('active'));
     document.getElementById(viewId).classList.add('active');
-    document.querySelectorAll('.alert').forEach(el => { el.className = 'alert'; el.innerHTML = ''; });
+    document.querySelectorAll('.alert').forEach(el => { el.className = 'alert'; el.innerHTML = ''; el.style.display = 'none'; });
 }
 
 // Display Alerts
 function showAlert(elementId, message, type) {
     const alertBox = document.getElementById(elementId);
     alertBox.className = `alert ${type}`;
-    alertBox.innerText = message;
+    alertBox.innerHTML = message;
+    alertBox.style.display = 'block';
 }
 
 // Toggle Password Visibility
@@ -26,20 +27,43 @@ function togglePassword(...fieldIds) {
 
 // Handle Logout
 function handleLogout() {
-    document.getElementById('jwt-token').value = ''; // Destroy token from client
-    document.getElementById('login-password').value = ''; // Clear password field
+    document.getElementById('jwt-token').value = ''; 
+    document.getElementById('login-password').value = ''; 
+    document.getElementById('api-response').style.display = 'none'; // Clear the API box
     switchView('view-login');
     showAlert('login-alert', 'You have been securely logged out.', 'success');
 }
 
-// API Calls
+
+// --- API FETCH CALLS & SECURITY ---
+
+// NEW: Fetch CSRF Token before submitting forms
+async function getCsrfToken() {
+    try {
+        const response = await fetch('/api/csrf-token');
+        if (response.ok) {
+            const data = await response.json();
+            return data.csrfToken;
+        }
+    } catch (error) {
+        console.error("Failed to fetch CSRF token:", error);
+    }
+    return '';
+}
+
 async function handleLogin() {
     const email = document.getElementById('login-email').value;
     const password = document.getElementById('login-password').value;
 
+    // Securely request the CSRF token
+    const csrfToken = await getCsrfToken();
+
     const res = await fetch('/login', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: { 
+            'Content-Type': 'application/json',
+            'csrf-token': csrfToken // Attach token to pass the backend check
+        },
         body: JSON.stringify({ email, password })
     });
     const data = await res.json();
@@ -61,16 +85,24 @@ async function handleRegister() {
         confirmPassword: document.getElementById('reg-confirm').value
     };
 
+    // Securely request the CSRF token
+    const csrfToken = await getCsrfToken();
+
     const res = await fetch('/register', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: { 
+            'Content-Type': 'application/json',
+            'csrf-token': csrfToken // Attach token to pass the backend check
+        },
         body: JSON.stringify(payload)
     });
     const data = await res.json();
 
     if (res.ok) {
         showAlert('reg-alert', data.message, 'success');
-        document.querySelectorAll('#view-register input[type="text"], #view-register input[type="email"], #view-register input[type="password"]').forEach(input => input.value = '');
+        document.querySelectorAll('#view-register input').forEach(input => {
+            if(input.type !== 'checkbox') input.value = '';
+        });
     } else {
         showAlert('reg-alert', data.error, 'error');
     }
@@ -83,17 +115,50 @@ async function handleReset() {
         newPassword: document.getElementById('reset-password').value
     };
 
+    // Securely request the CSRF token
+    const csrfToken = await getCsrfToken();
+
     const res = await fetch('/forgot-password', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: { 
+            'Content-Type': 'application/json',
+            'csrf-token': csrfToken // Attach token to pass the backend check
+        },
         body: JSON.stringify(payload)
     });
     const data = await res.json();
 
     if (res.ok) {
         showAlert('reset-alert', data.message, 'success');
-        document.querySelectorAll('#view-forgot input[type="text"], #view-forgot input[type="email"], #view-forgot input[type="password"]').forEach(input => input.value = '');
+        document.querySelectorAll('#view-forgot input').forEach(input => {
+            if(input.type !== 'checkbox') input.value = '';
+        });
     } else {
         showAlert('reset-alert', data.error, 'error');
+    }
+}
+
+// Week 4 - Secure API Testing
+async function testSecureAPI() {
+    const apiBox = document.getElementById('api-response');
+    apiBox.style.display = 'block';
+    apiBox.className = 'alert';
+    apiBox.innerText = 'Requesting secure data...';
+
+    const res = await fetch('/api/sensitive-data', {
+        method: 'GET',
+        headers: {
+            'x-api-key': 'intern-super-secret-api-key-2026' 
+        }
+    });
+    
+    const data = await res.json();
+
+    if (res.ok) {
+        apiBox.className = 'alert success';
+        apiBox.innerHTML = `<strong>${data.message}</strong><br><br>Data Retrieved:<br>- ${data.classified_data.join('<br>- ')}`;
+    } else {
+        apiBox.className = 'alert error';
+        apiBox.innerText = data.error;
     }
 }

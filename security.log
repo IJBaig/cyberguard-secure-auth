@@ -38,3 +38,35 @@
 {"level":"warn","message":"Login failed: Incorrect password for admin@domain.com","timestamp":"2026-02-25T20:21:29.178Z"}
 {"level":"warn","message":"Login failed: Incorrect password for admin@domain.com","timestamp":"2026-02-25T20:21:29.343Z"}
 {"level":"info","message":"User logged in successfully: jon","timestamp":"2026-02-25T20:21:39.697Z"}
+{"level":"info","message":"Secure application started on port 3000","timestamp":"2026-02-25T21:07:01.212Z"}
+{"level":"info","message":"Secure application started on port 3000","timestamp":"2026-03-28T15:26:43.254Z"}
+{"level":"info","message":"Secure application started on port 3000","timestamp":"2026-03-28T15:34:06.147Z"}
+{"level":"info","message":"Secure application started on port 3000","timestamp":"2026-03-28T15:39:45.898Z"}
+{"level":"info","message":"New user registered: qwerty (qwerty@q.com)","timestamp":"2026-03-28T15:40:05.398Z"}
+{"level":"info","message":"User logged in successfully: qwerty","timestamp":"2026-03-28T15:40:19.259Z"}
+{"level":"info","message":"User logged in successfully: qwerty","timestamp":"2026-03-28T15:41:17.768Z"}
+{"level":"info","message":"Password successfully reset for user: qwerty","timestamp":"2026-03-28T15:43:22.510Z"}
+{"level":"info","message":"Secure application started on port 3000","timestamp":"2026-03-28T15:58:34.433Z"}
+{"level":"warn","message":"Login failed: Unregistered email (qwerty@q.com)","timestamp":"2026-03-28T15:58:46.504Z"}
+{"level":"warn","message":"Login failed: Unregistered email (qwerty@q.com)","timestamp":"2026-03-28T15:58:48.058Z"}
+{"level":"info","message":"New user registered: qwerty (qwerty@q.com)","timestamp":"2026-03-28T15:59:09.513Z"}
+{"level":"info","message":"User logged in successfully: qwerty","timestamp":"2026-03-28T15:59:13.258Z"}
+{"level":"info","message":"[API-SUCCESS] Authorized access to sensitive data from IP: ::ffff:127.0.0.1","timestamp":"2026-03-28T15:59:54.981Z"}
+{"level":"info","message":"[API-SUCCESS] Authorized access to sensitive data from IP: ::ffff:127.0.0.1","timestamp":"2026-03-28T16:00:11.990Z"}
+{"level":"info","message":"[API-SUCCESS] Authorized access to sensitive data from IP: ::ffff:127.0.0.1","timestamp":"2026-03-28T16:00:12.688Z"}
+{"level":"info","message":"[API-SUCCESS] Authorized access to sensitive data from IP: ::ffff:127.0.0.1","timestamp":"2026-03-28T16:00:13.286Z"}
+{"level":"info","message":"[API-SUCCESS] Authorized access to sensitive data from IP: ::ffff:127.0.0.1","timestamp":"2026-03-28T16:00:13.759Z"}
+{"level":"info","message":"[API-SUCCESS] Authorized access to sensitive data from IP: ::ffff:127.0.0.1","timestamp":"2026-03-28T16:00:14.118Z"}
+{"level":"info","message":"[API-SUCCESS] Authorized access to sensitive data from IP: ::ffff:127.0.0.1","timestamp":"2026-03-28T16:00:14.426Z"}
+{"level":"info","message":"[API-SUCCESS] Authorized access to sensitive data from IP: ::ffff:127.0.0.1","timestamp":"2026-03-28T16:00:14.763Z"}
+{"level":"info","message":"[API-SUCCESS] Authorized access to sensitive data from IP: ::ffff:127.0.0.1","timestamp":"2026-03-28T16:00:15.492Z"}
+{"level":"info","message":"[API-SUCCESS] Authorized access to sensitive data from IP: ::ffff:127.0.0.1","timestamp":"2026-03-28T16:00:15.899Z"}
+{"level":"info","message":"Premium Secure Server running at http://localhost:3000","timestamp":"2026-03-28T16:26:38.105Z"}
+{"level":"warn","message":"Login failed: Unregistered email (qwerty@q.com)","timestamp":"2026-03-28T16:26:57.537Z"}
+{"level":"info","message":"New user registered: qwerty (qwerty@q.com)","timestamp":"2026-03-28T16:27:25.301Z"}
+{"level":"info","message":"User logged in successfully: qwerty","timestamp":"2026-03-28T16:27:29.273Z"}
+{"level":"info","message":"[API-SUCCESS] Authorized access from IP: ::ffff:127.0.0.1","timestamp":"2026-03-28T16:27:31.024Z"}
+{"level":"info","message":"User logged in successfully: qwerty","timestamp":"2026-03-28T16:28:06.434Z"}
+{"level":"info","message":"User logged in successfully: qwerty","timestamp":"2026-03-28T16:28:13.785Z"}
+{"level":"info","message":"Premium Secure Server running at http://localhost:3000","timestamp":"2026-03-28T16:28:46.425Z"}
+{"level":"info","message":"User logged in successfully: qwerty","timestamp":"2026-03-28T16:28:51.730Z"}
