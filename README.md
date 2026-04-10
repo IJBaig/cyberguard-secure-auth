@@ -1,3 +1,5 @@
+A Per Built User Login and Signup page with JWT enabled.
+
 # CyberGuard: Secure Identity Management & Authentication API
 
 A robust, secure Node.js authentication application developed as part of a Cybersecurity Internship. This project demonstrates the practical implementation of modern web security defense mechanisms, transitioning from basic access control to an enterprise-grade security posture resilient against automated exploitation.
